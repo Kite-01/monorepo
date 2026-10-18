@@ -51,3 +51,7 @@ A payment link you made in the Kite dashboard works too: pass its id, no server 
 | `onClose`       |                           | Checkout closed, by the customer or by `checkout.close()`  |
 
 `openCheckout` returns `{ result, close }`. Opening a second checkout closes the first.
+
+## License
+
+[MIT](../../LICENSE)

@@ -12,9 +12,12 @@
     "test": "turbo run test",
     "lint": "oxlint && prettier --check .",
     "format": "prettier --write .",
-    "spec:pull": "node scripts/pull-spec.mjs"
+    "spec:pull": "node scripts/pull-spec.mjs",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install --lockfile-only"
   },
   "devDependencies": {
+    "@changesets/cli": "3.0.3",
     "@types/node": "25.9.9",
     "oxlint": "1.86.0",
     "prettier": "3.9.9",

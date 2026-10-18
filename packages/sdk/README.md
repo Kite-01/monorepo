@@ -102,3 +102,7 @@ app.post(
 ```
 
 It throws a `WebhookVerificationError` when the signature doesn't match or the delivery is more than five minutes old. A retried delivery keeps its `eventId`, so use that to ignore repeats.
+
+## License
+
+[MIT](../../LICENSE)
