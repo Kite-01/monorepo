@@ -73,6 +73,16 @@ Maintainers release; you don't need to do anything beyond the changeset.
 
 When changesets reach `main`, the **Version** workflow opens a "Version packages" pull request that bumps versions and writes each package's `CHANGELOG.md`. After merging it, a maintainer runs the **Release** workflow once per package to publish it to npm.
 
+A new package's first version has to be published by hand, because npm only accepts a trusted publisher for a package that exists. From an up-to-date `main`, signed in to npm with publish rights to `@kite-01`:
+
+```sh
+pnpm install
+pnpm build
+cd packages/<package> && npm publish
+```
+
+Then, on the package's npm settings page, add a trusted publisher for this repository with the `release.yml` workflow and the `release` environment. Every later version goes through the Release workflow.
+
 ## License
 
 By contributing, you agree your contributions are licensed under the [MIT License](LICENSE).

@@ -40,7 +40,7 @@ Then commit the new spec with whatever SDK changes it needs.
 
 Each change carries a changeset (`pnpm changeset`). When changesets reach `main`, the **Version** workflow opens a "Version packages" pull request that bumps versions and writes the changelogs. After merging it, run the **Release** workflow from the Actions tab once per package.
 
-Release publishes through npm trusted publishing with `npm stage publish`, in the `release` environment, so no npm token is stored. On npmjs.com, each package needs a trusted publisher pointing at this repository, the `release.yml` workflow and the `release` environment. The Version workflow needs "Allow GitHub Actions to create and approve pull requests" turned on under the repository's Actions settings.
+npm only lets you add a trusted publisher to a package that already exists, so a package's first version is published by hand (see [CONTRIBUTING.md](CONTRIBUTING.md#releases)). After that, Release publishes through npm trusted publishing with `npm stage publish`, in the `release` environment, so no npm token is stored. On npmjs.com, each package needs a trusted publisher pointing at this repository, the `release.yml` workflow and the `release` environment. The Version workflow needs "Allow GitHub Actions to create and approve pull requests" turned on under the repository's Actions settings.
 
 ## Contributing
 
