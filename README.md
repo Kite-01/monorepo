@@ -38,6 +38,9 @@ Then commit the new spec with whatever SDK changes it needs.
 
 ### Releasing
 
-Describe each change with `pnpm changeset`. When those reach `main`, the release workflow opens a version PR; merging it publishes to npm. It needs an `NPM_TOKEN` secret with publish rights to `@kite-01`.
+Releases work like the contracts repo's: one package at a time, by hand.
 
-To share the build cache across machines and CI, set a `TURBO_TOKEN` secret and `TURBO_TEAM` variable for [Vercel Remote Cache](https://turborepo.com/docs/core-concepts/remote-caching); without them the cache stays local.
+1. Bump `version` in the package's `package.json` and merge it to `main`.
+2. Run the **Release** workflow from the Actions tab and pick the package.
+
+The workflow runs in the `release` environment, typechecks, tests and builds the package, then publishes it with `npm stage publish` through npm trusted publishing, so no npm token is stored. On npmjs.com, each package needs a trusted publisher pointing at this repository, the `release.yml` workflow and the `release` environment.

@@ -12,12 +12,9 @@
     "test": "turbo run test",
     "lint": "oxlint && prettier --check .",
     "format": "prettier --write .",
-    "spec:pull": "node scripts/pull-spec.mjs",
-    "changeset": "changeset",
-    "release": "turbo run build && changeset publish"
+    "spec:pull": "node scripts/pull-spec.mjs"
   },
   "devDependencies": {
-    "@changesets/cli": "3.0.3",
     "@types/node": "25.9.9",
     "oxlint": "1.86.0",
     "prettier": "3.9.9",
