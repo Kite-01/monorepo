@@ -1,5 +1,11 @@
 # @kite-01/sdk
 
+## 0.1.1
+
+### Patch Changes
+
+- d466d52: Stage publishing setup
+
 ## 0.1.0
 
 ### Minor Changes
