@@ -105,4 +105,4 @@ It throws a `WebhookVerificationError` when the signature doesn't match or the d
 
 ## License
 
-[MIT](../../LICENSE)
+[MIT](https://github.com/Kite-01/monorepo/blob/main/LICENSE)

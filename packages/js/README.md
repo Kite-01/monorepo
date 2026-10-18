@@ -54,4 +54,4 @@ A payment link you made in the Kite dashboard works too: pass its id, no server 
 
 ## License
 
-[MIT](../../LICENSE)
+[MIT](https://github.com/Kite-01/monorepo/blob/main/LICENSE)
