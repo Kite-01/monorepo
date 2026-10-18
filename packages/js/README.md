@@ -15,7 +15,7 @@ Or without a bundler:
 
 ## Open checkout
 
-Your server creates the payment link with [`@kite-01/sdk`](../sdk), which decides the price. The page only opens it:
+Your server creates the payment link with [`@kite-01/sdk`](https://github.com/Kite-01/monorepo/tree/main/packages/sdk), which decides the price. The page only opens it:
 
 ```ts
 import { openCheckout } from "@kite-01/js";

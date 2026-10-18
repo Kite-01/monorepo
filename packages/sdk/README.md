@@ -35,7 +35,7 @@ const kite = new Kite({
 
 ## Take a payment
 
-Create a payment link for the order, tagged with your own reference, and hand its id to your frontend to open with [`@kite-01/js`](../js):
+Create a payment link for the order, tagged with your own reference, and hand its id to your frontend to open with [`@kite-01/js`](https://github.com/Kite-01/monorepo/tree/main/packages/js):
 
 ```ts
 const { data: link } = await kite.paymentLinks.create({
