@@ -1,0 +1,20 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "agentGuidance": false,
+  "tasks": {
+    "generate": {
+      "inputs": ["openapi-ts.config.ts", "$TURBO_ROOT$/openapi/kite.json"],
+      "outputs": ["src/gen/**"]
+    },
+    "build": {
+      "dependsOn": ["generate", "^build"],
+      "outputs": ["dist/**"]
+    },
+    "check": {
+      "dependsOn": ["generate", "^build"]
+    },
+    "test": {
+      "dependsOn": ["generate", "^build"]
+    }
+  }
+}
