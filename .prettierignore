@@ -1,0 +1,4 @@
+pnpm-lock.yaml
+openapi/kite.json
+packages/sdk/src/gen
+dist
