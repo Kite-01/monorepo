@@ -1,5 +1,12 @@
 # @kite-01/sdk
 
+## 1.0.0
+
+### Major Changes
+
+- b9edf9f: - Remove the checkout pay operation and add the x402Offer field to generated types.
+  - Support for resuable and onetime payment links
+
 ## 0.1.1
 
 ### Patch Changes
