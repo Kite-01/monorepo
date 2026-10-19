@@ -1,11 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises";
 
-const source = process.argv[2];
+const source = process.argv[2] ?? "http://localhost:3000/openapi/json";
 if (!source) {
   console.error(
     "Usage: pnpm spec:pull <url or file>\n" +
       "  e.g. https://pay.example.com/openapi/json, or a file from the server's `bun run spec`",
   );
+
   process.exit(1);
 }
 
