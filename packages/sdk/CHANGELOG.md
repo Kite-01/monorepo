@@ -1,5 +1,11 @@
 # @kite-01/sdk
 
+## 2.0.0
+
+### Major Changes
+
+- 77475bc: Bug fixes
+
 ## 1.0.0
 
 ### Major Changes
