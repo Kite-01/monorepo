@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping with Kite. This repo holds the npm packages merchants use to integrate with a Kite server: `@kite-01/sdk` for their backend and `@kite-01/js` for their site.
+Thanks for helping with Kite. This repo holds the npm packages merchants use to integrate with a Kite server.
 
 Found a security issue? Don't open an issue or pull request; follow the [security policy](https://github.com/Kite-01/server/blob/main/SECURITY.md).
 
@@ -41,7 +41,6 @@ pnpm test
 A few rules the packages follow:
 
 - `@kite-01/sdk` runs anywhere with Web Crypto (Node 20+, Bun, Deno, edge runtimes), so its `src/` can't use Node built-ins. Tests can.
-- `@kite-01/js` has no dependencies and stays small; check `dist/index.iife.js` after building.
 - Don't hand-write types the spec already gives you. Generated code lives in `packages/sdk/src/gen/` and isn't committed.
 - Write comments only where the code can't explain itself.
 

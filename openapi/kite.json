@@ -39,6 +39,7 @@
           "websiteUrl",
           "termsOfServiceUrl",
           "privacyPolicyUrl",
+          "settlementAddress",
           "deletedAt",
           "createdAt",
           "updatedAt"
@@ -70,6 +71,13 @@
             ]
           },
           "privacyPolicyUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "settlementAddress": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": [
               "string",
               "null"
@@ -291,7 +299,6 @@
           "kiteFactoryAddress",
           "usdPeggedTokenId",
           "settlementTokenId",
-          "settlementAddress",
           "onchainNotifierProviders",
           "gasSponsorProviders",
           "maxGasPrice",
@@ -329,13 +336,6 @@
             "format": "uuid",
             "type": "string"
           },
-          "settlementAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
           "onchainNotifierProviders": {
             "type": "array",
             "items": {
@@ -343,6 +343,7 @@
               "enum": [
                 "Alchemy",
                 "QuickNode",
+                "Thirdweb",
                 "TrustWallet"
               ]
             }
@@ -354,6 +355,7 @@
               "enum": [
                 "Alchemy",
                 "QuickNode",
+                "Thirdweb",
                 "TrustWallet"
               ]
             }
@@ -496,7 +498,6 @@
           "chainId",
           "testnet",
           "nativeCurrency",
-          "blockExplorer",
           "confirmations"
         ],
         "properties": {
@@ -1694,7 +1695,8 @@
               "refundAddress",
               "expiresAt",
               "routerAddress",
-              "poolFeeTier"
+              "poolFeeTier",
+              "implementation"
             ],
             "properties": {
               "id": {
@@ -1763,6 +1765,10 @@
               },
               "poolFeeTier": {
                 "type": "integer"
+              },
+              "implementation": {
+                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "type": "string"
               }
             }
           },
@@ -1955,7 +1961,8 @@
               "refundAddress",
               "expiresAt",
               "routerAddress",
-              "poolFeeTier"
+              "poolFeeTier",
+              "implementation"
             ],
             "properties": {
               "id": {
@@ -2024,6 +2031,10 @@
               },
               "poolFeeTier": {
                 "type": "integer"
+              },
+              "implementation": {
+                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "type": "string"
               }
             }
           },
@@ -2193,7 +2204,8 @@
               "refundAddress",
               "expiresAt",
               "routerAddress",
-              "poolFeeTier"
+              "poolFeeTier",
+              "implementation"
             ],
             "properties": {
               "id": {
@@ -2262,6 +2274,10 @@
               },
               "poolFeeTier": {
                 "type": "integer"
+              },
+              "implementation": {
+                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "type": "string"
               }
             }
           },
@@ -2481,7 +2497,8 @@
               "refundAddress",
               "expiresAt",
               "routerAddress",
-              "poolFeeTier"
+              "poolFeeTier",
+              "implementation"
             ],
             "properties": {
               "id": {
@@ -2550,6 +2567,10 @@
               },
               "poolFeeTier": {
                 "type": "integer"
+              },
+              "implementation": {
+                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "type": "string"
               }
             }
           },
@@ -3112,6 +3133,7 @@
             "enum": [
               "Alchemy",
               "QuickNode",
+              "Thirdweb",
               "TrustWallet"
             ]
           },
@@ -3147,7 +3169,8 @@
                     "QuickNodeEvmWalletFilter_WalletsListName",
                     "QuickNodeEvmContractEvents_ContractsListName",
                     "QuickNodeEvmContractEvents_EventHashesListName",
-                    "QuickNodeWebhookSecurityToken"
+                    "QuickNodeWebhookSecurityToken",
+                    "ThirdwebSecretKey"
                   ]
                 },
                 "type": {
@@ -3244,7 +3267,10 @@
                   "type": "string"
                 },
                 "explorerUrl": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               }
             }
@@ -3735,7 +3761,6 @@
                 "testnet",
                 "icon",
                 "nativeCurrency",
-                "blockExplorer",
                 "rpcUrls",
                 "settlementToken",
                 "tokens"
@@ -4085,6 +4110,13 @@
                       "string",
                       "null"
                     ]
+                  },
+                  "settlementAddress": {
+                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 }
               }
@@ -4169,6 +4201,13 @@
                   "privacyPolicyUrl": {
                     "format": "uri",
                     "maxLength": 2048,
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "settlementAddress": {
+                    "pattern": "^0x[0-9a-fA-F]{40}$",
                     "type": [
                       "string",
                       "null"
@@ -4798,13 +4837,6 @@
                     "format": "uuid",
                     "type": "string"
                   },
-                  "settlementAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
                   "onchainNotifierProviders": {
                     "uniqueItems": true,
                     "type": "array",
@@ -4813,6 +4845,7 @@
                       "enum": [
                         "Alchemy",
                         "QuickNode",
+                        "Thirdweb",
                         "TrustWallet"
                       ]
                     }
@@ -4825,6 +4858,7 @@
                       "enum": [
                         "Alchemy",
                         "QuickNode",
+                        "Thirdweb",
                         "TrustWallet"
                       ]
                     }
@@ -4980,6 +5014,66 @@
       }
     },
     "/api/tokens/{id}": {
+      "patch": {
+        "operationId": "tokens.update",
+        "security": [
+          {
+            "rootKey": []
+          }
+        ],
+        "tags": [
+          "Tokens"
+        ],
+        "summary": "Change a token's icon",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "icon"
+                ],
+                "properties": {
+                  "icon": {
+                    "format": "uri",
+                    "pattern": "^https?://",
+                    "maxLength": 2048,
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Response for status 200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "operationId": "tokens.delete",
         "security": [
@@ -6082,7 +6176,8 @@
                 "QuickNodeEvmWalletFilter_WalletsListName",
                 "QuickNodeEvmContractEvents_ContractsListName",
                 "QuickNodeEvmContractEvents_EventHashesListName",
-                "QuickNodeWebhookSecurityToken"
+                "QuickNodeWebhookSecurityToken",
+                "ThirdwebSecretKey"
               ]
             }
           }

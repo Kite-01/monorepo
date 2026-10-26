@@ -9,7 +9,6 @@ on:
         type: choice
         options:
           - sdk
-          - js
 
 permissions:
   contents: read
