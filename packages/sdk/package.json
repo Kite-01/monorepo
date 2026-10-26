@@ -1,6 +1,6 @@
 {
   "name": "@kite-01/sdk",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Server-side client for the Kite payments API",
   "license": "MIT",
   "repository": {
