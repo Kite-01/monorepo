@@ -503,6 +503,7 @@
           "id",
           "caip2Id",
           "name",
+          "icon",
           "settlementToken",
           "usdPeggedToken"
         ],
@@ -515,6 +516,9 @@
             "type": "string"
           },
           "name": {
+            "type": "string"
+          },
+          "icon": {
             "type": "string"
           },
           "settlementToken": {
