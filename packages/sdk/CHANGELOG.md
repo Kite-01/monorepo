@@ -1,5 +1,11 @@
 # @kite-01/sdk
 
+## 2.0.1
+
+### Patch Changes
+
+- 3cd1412: Updated documentation
+
 ## 2.0.0
 
 ### Major Changes
