@@ -5,12 +5,11 @@ npm packages for integrating with a [Kite](https://github.com/Kite-01/server) se
 | Package                        | Runs on     | For                                                     |
 | ------------------------------ | ----------- | ------------------------------------------------------- |
 | [`@kite-01/sdk`](packages/sdk) | your server | Calling the Kite API with signed requests, and webhooks |
-| [`@kite-01/js`](packages/js)   | the browser | Opening checkout over your page                         |
 
 A payment goes like this:
 
 1. Your server creates a payment link for the order with `@kite-01/sdk`, tagging it with your order id as its `reference`.
-2. Your page opens it with `openCheckout` from `@kite-01/js`.
+2. Your page sends the customer to the link's `/pay/<id>` page on your Kite server. To keep them on your page, show `/pay/<id>?embed` in an iframe instead: it posts `ready`, `status`, `success`, `failed` and `close` messages, each with `source: "kite"`, to the page around it.
 3. Kite sends a `Transfer` webhook when the payment settles; your server verifies it with `verifyWebhook` and fulfils the order.
 
 ## Development
@@ -19,9 +18,13 @@ Needs Node 20+ and pnpm.
 
 ```sh
 pnpm install
-pnpm build    # every package; Turborepo caches the results
+
+# every package; Turborepo caches the results
+pnpm build
 pnpm test
-pnpm check    # typecheck
+
+# typecheck
+pnpm check
 pnpm lint
 ```
 
