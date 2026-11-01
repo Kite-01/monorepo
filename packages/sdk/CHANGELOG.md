@@ -1,5 +1,11 @@
 # @kite-01/sdk
 
+## 2.0.2
+
+### Patch Changes
+
+- 40bdf04: Configured chains from `chains.list` include their `icon`.
+
 ## 2.0.1
 
 ### Patch Changes
