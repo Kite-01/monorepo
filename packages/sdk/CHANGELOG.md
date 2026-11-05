@@ -1,5 +1,11 @@
 # @kite-01/sdk
 
+## 2.1.0
+
+### Minor Changes
+
+- 587ec9c: Added support for Near & bug fixes
+
 ## 2.0.2
 
 ### Patch Changes
