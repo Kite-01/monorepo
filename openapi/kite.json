@@ -150,7 +150,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "createdAt": {
@@ -233,6 +235,7 @@
                 "quotes:write",
                 "Transfer:Read",
                 "Transfer:Write",
+                "Transfer:Recover",
                 "Webhook:Read",
                 "Webhook:Write",
                 "Webhook:Delete",
@@ -376,7 +379,9 @@
             "type": "integer"
           },
           "kiteFactoryAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "usdPeggedTokenId": {
@@ -554,6 +559,7 @@
           "name",
           "chainId",
           "testnet",
+          "beta",
           "nativeCurrency",
           "confirmations"
         ],
@@ -565,9 +571,15 @@
             "type": "string"
           },
           "chainId": {
-            "type": "integer"
+            "type": [
+              "integer",
+              "null"
+            ]
           },
           "testnet": {
+            "type": "boolean"
+          },
+          "beta": {
             "type": "boolean"
           },
           "nativeCurrency": {
@@ -648,7 +660,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "symbol": {
@@ -732,7 +746,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "symbol": {
@@ -966,7 +982,9 @@
             }
           },
           "feeAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": [
               "string",
               "null"
@@ -1055,7 +1073,9 @@
             }
           },
           "feeAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": [
               "string",
               "null"
@@ -1266,7 +1286,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "decimals": {
@@ -1314,7 +1336,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "decimals": {
@@ -1364,6 +1388,7 @@
           "targetUsdAmount",
           "rate",
           "uniswapPoolFeeTier",
+          "swapPool",
           "reference",
           "meta",
           "expiresAt",
@@ -1427,6 +1452,12 @@
           "uniswapPoolFeeTier": {
             "type": [
               "integer",
+              "null"
+            ]
+          },
+          "swapPool": {
+            "type": [
+              "string",
               "null"
             ]
           },
@@ -1498,7 +1529,9 @@
             "type": "string"
           },
           "feeAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "blockchainHash": {
@@ -1531,6 +1564,7 @@
           "targetUsdAmount",
           "rate",
           "uniswapPoolFeeTier",
+          "swapPool",
           "reference",
           "meta",
           "expiresAt",
@@ -1600,6 +1634,12 @@
           "uniswapPoolFeeTier": {
             "type": [
               "integer",
+              "null"
+            ]
+          },
+          "swapPool": {
+            "type": [
+              "string",
               "null"
             ]
           },
@@ -1736,7 +1776,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -1745,103 +1787,309 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "router",
+                      "pool",
+                      "wrap"
+                    ],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "Dcl"
+                            ],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "RefV1"
+                            ],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -1990,7 +2238,9 @@
             "type": "string"
           },
           "depositAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "destinationAsset": {
@@ -2006,7 +2256,9 @@
             "type": "string"
           },
           "refundTo": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "deadline": {
@@ -2159,7 +2411,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2168,103 +2422,309 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "router",
+                      "pool",
+                      "wrap"
+                    ],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "Dcl"
+                            ],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "RefV1"
+                            ],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -2413,7 +2873,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2422,103 +2884,309 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "router",
+                      "pool",
+                      "wrap"
+                    ],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "Dcl"
+                            ],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "RefV1"
+                            ],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -2716,7 +3384,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2725,103 +3395,309 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "Token"
+                        ],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "recipient",
+                        "amount"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "router",
+                      "pool",
+                      "wrap"
+                    ],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "Dcl"
+                            ],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                              "RefV1"
+                            ],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -2919,11 +3795,15 @@
                 "type": "string"
               },
               "address": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "minLength": 2,
+                "maxLength": 64,
+                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                 "type": "string"
               },
               "tokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "minLength": 2,
+                "maxLength": 64,
+                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                 "type": "string"
               },
               "amount": {
@@ -3474,8 +4354,11 @@
               ],
               "properties": {
                 "chainType": {
-                  "const": "Evm",
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "Evm",
+                    "Near"
+                  ]
                 },
                 "address": {
                   "type": "string"
@@ -3515,7 +4398,9 @@
                   "type": "boolean"
                 },
                 "operatorAddress": {
-                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                  "minLength": 2,
+                  "maxLength": 64,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 },
                 "explorerUrl": {
@@ -3658,7 +4543,9 @@
                   "type": "integer"
                 },
                 "address": {
-                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                  "minLength": 2,
+                  "maxLength": 64,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 },
                 "chainId": {
@@ -3737,7 +4624,9 @@
               "^(.*)$": {
                 "type": "array",
                 "items": {
-                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                  "minLength": 2,
+                  "maxLength": 64,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 }
               }
@@ -3767,7 +4656,9 @@
             "type": "string"
           },
           "asset": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "amount": {
@@ -3776,7 +4667,9 @@
             "type": "string"
           },
           "payTo": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "maxTimeoutSeconds": {
@@ -3785,10 +4678,6 @@
           "extra": {
             "additionalProperties": false,
             "type": "object",
-            "required": [
-              "name",
-              "version"
-            ],
             "properties": {
               "name": {
                 "type": "string"
@@ -4023,6 +4912,7 @@
                 "id",
                 "caip2Id",
                 "name",
+                "chainType",
                 "chainId",
                 "testnet",
                 "icon",
@@ -4042,8 +4932,18 @@
                 "name": {
                   "type": "string"
                 },
+                "chainType": {
+                  "type": "string",
+                  "enum": [
+                    "Evm",
+                    "Near"
+                  ]
+                },
                 "chainId": {
-                  "type": "integer"
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "testnet": {
                   "type": "boolean"
@@ -4106,7 +5006,9 @@
                   ],
                   "properties": {
                     "address": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
+                      "minLength": 2,
+                      "maxLength": 64,
+                      "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                       "type": "string"
                     },
                     "symbol": {
@@ -4144,7 +5046,9 @@
                     ],
                     "properties": {
                       "address": {
-                        "pattern": "^0x[0-9a-fA-F]{40}$",
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                         "type": "string"
                       },
                       "symbol": {
@@ -4207,7 +5111,9 @@
             ]
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "x402BlockchainHash": {
@@ -4586,7 +5492,9 @@
                 ],
                 "properties": {
                   "address": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -4692,6 +5600,7 @@
                         "quotes:write",
                         "Transfer:Read",
                         "Transfer:Write",
+                        "Transfer:Recover",
                         "Webhook:Read",
                         "Webhook:Write",
                         "Webhook:Delete",
@@ -4980,7 +5889,7 @@
                 ],
                 "properties": {
                   "caip2Id": {
-                    "pattern": "^eip155:[0-9]+$",
+                    "pattern": "^(eip155:[0-9]+|near:(mainnet|testnet))$",
                     "type": "string"
                   }
                 }
@@ -5213,7 +6122,9 @@
                     ]
                   },
                   "kiteFactoryAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "usdPeggedTokenId": {
@@ -5302,7 +6213,9 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "minLength": 2,
+              "maxLength": 64,
+              "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
               "type": "string"
             }
           }
@@ -5588,7 +6501,9 @@
                     "type": "string"
                   },
                   "sourceTokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -5646,7 +6561,9 @@
                     "type": "string"
                   },
                   "refundAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -6142,13 +7059,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6165,13 +7086,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6213,7 +7138,9 @@
                     }
                   },
                   "feeAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": [
                       "string",
                       "null"
@@ -6380,13 +7307,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6403,13 +7334,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6451,7 +7386,9 @@
                     }
                   },
                   "feeAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": [
                       "string",
                       "null"
@@ -6570,25 +7507,33 @@
         "tags": [
           "Kv"
         ],
-        "summary": "Set a provider key",
+        "summary": "Set a configuration value",
         "parameters": [
           {
             "name": "key",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "enum": [
-                "AlchemyApiKey",
-                "AlchemyGasPolicyId",
-                "AlchemyAuthToken",
-                "QuickNodeApiKey",
-                "QuickNodeEvmWalletFilter_WalletsListName",
-                "QuickNodeEvmContractEvents_ContractsListName",
-                "QuickNodeEvmContractEvents_EventHashesListName",
-                "QuickNodeWebhookSecurityToken",
-                "ThirdwebSecretKey",
-                "NearIntentsApiKey"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "AlchemyApiKey",
+                    "AlchemyGasPolicyId",
+                    "AlchemyAuthToken",
+                    "QuickNodeApiKey",
+                    "QuickNodeEvmWalletFilter_WalletsListName",
+                    "QuickNodeEvmContractEvents_ContractsListName",
+                    "QuickNodeEvmContractEvents_EventHashesListName",
+                    "QuickNodeWebhookSecurityToken",
+                    "ThirdwebSecretKey",
+                    "NearIntentsApiKey"
+                  ]
+                },
+                {
+                  "pattern": "^(?:AlchemyAddressActivity_Webhook|AlchemyContractEvents_Webhook|QuickNodeEvmWalletFilter_WebhookId|QuickNodeEvmContractEvents_WebhookId):[A-Za-z0-9_-]+$",
+                  "type": "string"
+                }
               ]
             }
           }
@@ -6623,6 +7568,50 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/KvEntry"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "kv.delete",
+        "security": [
+          {
+            "rootKey": []
+          }
+        ],
+        "tags": [
+          "Kv"
+        ],
+        "summary": "Delete a configuration value",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response for status 200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "key"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -7245,7 +8234,9 @@
                     "type": "string"
                   },
                   "sourceTokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "customerId": {
@@ -7510,7 +8501,9 @@
                     "type": "string"
                   },
                   "sourceTokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "amount": {
@@ -7696,7 +8689,9 @@
                     "type": "string"
                   },
                   "refundAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -7919,7 +8914,9 @@
                 ],
                 "properties": {
                   "tokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -7981,11 +8978,15 @@
                 ],
                 "properties": {
                   "tokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "destinationAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "useGasSponsor": {
