@@ -1,5 +1,11 @@
 # @kite-01/sdk
 
+## 2.4.0
+
+### Minor Changes
+
+- 9405ea7: Add `kite.checkout.reportPaid()`, which asks Kite to look for a checkout payment right away once the payer says they've sent it.
+
 ## 2.3.0
 
 ### Minor Changes
