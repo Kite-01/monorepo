@@ -2,9 +2,10 @@
 
 npm packages for integrating with a [Kite](https://github.com/Kite-01/server) server.
 
-| Package                        | Runs on     | For                                                     |
-| ------------------------------ | ----------- | ------------------------------------------------------- |
-| [`@kite-01/sdk`](packages/sdk) | your server | Calling the Kite API with signed requests, and webhooks |
+| Package                          | Runs on     | For                                                     |
+| -------------------------------- | ----------- | ------------------------------------------------------- |
+| [`@kite-01/sdk`](packages/sdk)   | your server | Calling the Kite API with signed requests, and webhooks |
+| [`@kite-01/x402`](packages/x402) | your server | Charging per request with x402, settled by Kite         |
 
 A payment goes like this:
 

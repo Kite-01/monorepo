@@ -1,0 +1,130 @@
+{
+  "name": "@kite-01/x402",
+  "version": "0.0.0",
+  "description": "x402 middleware that charges per request through a Kite server",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kite-01/monorepo.git",
+    "directory": "packages/x402"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./hono": {
+      "import": {
+        "types": "./dist/hono.d.ts",
+        "default": "./dist/hono.js"
+      },
+      "require": {
+        "types": "./dist/hono.d.cts",
+        "default": "./dist/hono.cjs"
+      }
+    },
+    "./elysia": {
+      "import": {
+        "types": "./dist/elysia.d.ts",
+        "default": "./dist/elysia.js"
+      },
+      "require": {
+        "types": "./dist/elysia.d.cts",
+        "default": "./dist/elysia.cjs"
+      }
+    },
+    "./next": {
+      "import": {
+        "types": "./dist/next.d.ts",
+        "default": "./dist/next.js"
+      },
+      "require": {
+        "types": "./dist/next.d.cts",
+        "default": "./dist/next.cjs"
+      }
+    },
+    "./express": {
+      "import": {
+        "types": "./dist/express.d.ts",
+        "default": "./dist/express.js"
+      },
+      "require": {
+        "types": "./dist/express.d.cts",
+        "default": "./dist/express.cjs"
+      }
+    },
+    "./fastify": {
+      "import": {
+        "types": "./dist/fastify.d.ts",
+        "default": "./dist/fastify.js"
+      },
+      "require": {
+        "types": "./dist/fastify.d.cts",
+        "default": "./dist/fastify.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "check": "tsc && tsc -p test",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@kite-01/sdk": "workspace:^",
+    "@x402/core": "2.32.0"
+  },
+  "peerDependencies": {
+    "elysia": ">=1",
+    "express": ">=4",
+    "fastify": ">=5",
+    "hono": ">=4",
+    "next": ">=14"
+  },
+  "peerDependenciesMeta": {
+    "elysia": {
+      "optional": true
+    },
+    "express": {
+      "optional": true
+    },
+    "fastify": {
+      "optional": true
+    },
+    "hono": {
+      "optional": true
+    },
+    "next": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "25.9.9",
+    "elysia": "1.4.32",
+    "express": "5.3.0",
+    "fastify": "5.12.8",
+    "hono": "4.13.23",
+    "next": "16.4.6"
+  }
+}
