@@ -77,7 +77,9 @@ A new package's first version has to be published by hand, because npm only acce
 ```sh
 pnpm install
 pnpm build
-cd packages/<package> && npm publish
+cd packages/<package>
+pnpm pack --out package.tgz
+npm publish ./package.tgz
 ```
 
 Then, on the package's npm settings page, add a trusted publisher for this repository with the `release.yml` workflow and the `release` environment. Every later version goes through the Release workflow.
