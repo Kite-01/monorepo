@@ -9,6 +9,7 @@ on:
         type: choice
         options:
           - sdk
+          - x402
 
 permissions:
   contents: read
@@ -43,6 +44,9 @@ jobs:
       - name: Install npm
         run: npm install -g npm@11.15.0
 
+      # pnpm pack turns workspace: dependencies into version ranges; npm publish doesn't.
       - name: Publish
         working-directory: packages/${{ inputs.package }}
-        run: npm stage publish
+        run: |
+          pnpm pack --out package.tgz
+          npm stage publish ./package.tgz
